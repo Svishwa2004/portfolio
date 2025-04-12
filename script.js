@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Display alert message when the webpage loads
+    alert('This Portfolio is made for fun and Skills and Projects may not be accurate!');
+    
     // Preloader
     const preloader = document.createElement('div');
     preloader.className = 'preloader';
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add grow class to elements that are clickable
-    const clickables = document.querySelectorAll('a, button, .filter-btn, .service-card');
+    const clickables = document.querySelectorAll('a, button, .filter-btn, .project-card, .service-card, .skill-tag');
     clickables.forEach(item => {
         item.addEventListener('mouseenter', () => customCursor.classList.add('grow'));
         item.addEventListener('mouseleave', () => customCursor.classList.remove('grow'));
@@ -118,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typedElement) {
         console.log("Initializing Typed.js");
         const typed = new Typed('.typed', {
-            strings: ['Web Developer', 'UI/UX Designer', 'Freelancer', 'Mobile Developer'],
+            strings: ['Full-Stack Developer', 'Front-End Specialist', 'Back-End Engineer', 'UI/UX Designer'],
             typeSpeed: 70,          // Slightly faster for smoother appearance
             backSpeed: 50,          // Consistent backspacing speed
             backDelay: 1000,        // Delay before backspacing
@@ -157,9 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
     sr.reveal('.about-image', { origin: 'left' });
     sr.reveal('.about-text', { origin: 'right' });
     sr.reveal('.service-card', { interval: 200 });
-    sr.reveal('.portfolio-item', { interval: 300 });
+    sr.reveal('.project-card', { interval: 300 });
+    sr.reveal('.case-study', { interval: 400 });
     sr.reveal('.contact-info', { origin: 'left' });
     sr.reveal('.contact-form', { origin: 'right' });
+    sr.reveal('.github-stat', { interval: 150 });
+    sr.reveal('.github-repo', { interval: 200 });
+    sr.reveal('.skill-category', { interval: 150 });
     
     // Animate skill bars when in view
     const skillBars = document.querySelectorAll('.skill-per');
@@ -180,33 +187,39 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }, { threshold: 0.5 });
         
-        // Observe the skills section
-        const skillsSection = document.querySelector('.skills');
-        if (skillsSection) {
-            observer.observe(skillsSection);
-        }
+        // Observe both skills sections
+        const skillsSections = document.querySelectorAll('.skills, .skill-progress');
+        skillsSections.forEach(section => {
+            if (section) {
+                observer.observe(section);
+            }
+        });
     } else {
         // Fallback for browsers that don't support IntersectionObserver
         window.addEventListener('scroll', () => {
             const skillsSection = document.querySelector('.skills');
-            if (skillsSection) {
-                const sectionTop = skillsSection.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (sectionTop < windowHeight * 0.8) {
-                    animateSkills();
+            const skillProgressSection = document.querySelector('.skill-progress');
+            
+            [skillsSection, skillProgressSection].forEach(section => {
+                if (section) {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.8) {
+                        animateSkills();
+                    }
                 }
-            }
+            });
         });
     }
     
-    // Portfolio filtering with smooth transitions
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const portfolioGrid = document.querySelector('.portfolio-grid');
+    // Project filtering with smooth transitions
+    const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    const projectGrid = document.querySelector('.project-grid');
     
     // Set initial active button
-    document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+    document.querySelector('.project-filters .filter-btn[data-filter="all"]')?.classList.add('active');
     
     // Add click event to filter buttons
     filterButtons.forEach(btn => {
@@ -219,34 +232,44 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const filter = this.getAttribute('data-filter');
             
-            // Apply staggered animation to portfolio grid
-            portfolioGrid.style.height = `${portfolioGrid.offsetHeight}px`;
+            // Apply staggered animation to project grid
+            projectGrid.style.height = `${projectGrid.offsetHeight}px`;
             
             // Create a smooth filtering effect
-            portfolioItems.forEach(item => {
-                // First remove all items with animation
-                item.classList.add('hide');
-                item.classList.remove('show');
+            projectCards.forEach(item => {
+                // First hide all items with animation
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
                 
                 // Force a reflow to ensure animation runs
                 void item.offsetWidth;
                 
                 // After a short delay, show filtered items
                 setTimeout(() => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.classList.remove('hide');
-                        item.classList.add('show');
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
                     }
                 }, 300);
             });
             
             // Update grid height after filtering (with delay to allow animations)
             setTimeout(() => {
-                portfolioGrid.style.height = 'auto';
+                projectGrid.style.height = 'auto';
             }, 600);
         });
     });
     
+    // GitHub API Integration - Removed dynamic loading and replaced with static content
+
     // Add Scroll to Top button
     const scrollTopBtn = document.createElement('div');
     scrollTopBtn.className = 'scroll-to-top';
@@ -262,14 +285,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Scroll to top when button is clicked
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
     // Parallax effect for hero section background
     window.addEventListener('scroll', () => {
         const heroSection = document.querySelector('.hero');
@@ -280,17 +295,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Add some additional animation to portfolio items
-    portfolioItems.forEach(item => {
+    projectCards.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            const overlay = item.querySelector('.portfolio-overlay');
-            overlay.style.backgroundColor = 'rgba(74, 107, 253, 0.9)';
+            const overlay = item.querySelector('.project-content');
+            if (overlay) {
+                overlay.style.transform = 'translateY(-10px)';
+            }
         });
         
         item.addEventListener('mouseleave', () => {
-            const overlay = item.querySelector('.portfolio-overlay');
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            const overlay = item.querySelector('.project-content');
+            if (overlay) {
+                overlay.style.transform = 'translateY(0)';
+            }
         });
     });
+    
+    // Theme toggle functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        enableDarkMode();
+    }
+    
+    // Toggle between light and dark themes
+    themeToggle?.addEventListener('click', () => {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        if (isDarkMode) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+    
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
+        
+        // Update CSS variables for dark mode
+        root.style.setProperty('--light-color', '#121212');
+        root.style.setProperty('--dark-color', '#f9fafb');
+        root.style.setProperty('--text-color', '#e0e0e0');
+        root.style.setProperty('--heading-color', '#ffffff');
+    }
+    
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        localStorage.setItem('theme', 'light');
+        
+        // Reset CSS variables to default
+        root.style.setProperty('--light-color', '#f9fafb');
+        root.style.setProperty('--dark-color', '#111827');
+        root.style.setProperty('--text-color', '#4b5563');
+        root.style.setProperty('--heading-color', '#1f2937');
+    }
     
     // Add counter animation for numbers (example usage in the future)
     function animateCounter(target, start, end, duration) {
@@ -306,12 +369,26 @@ document.addEventListener('DOMContentLoaded', function() {
         window.requestAnimationFrame(step);
     }
     
-    // Example usage for future statistics section:
-    // const counterElements = document.querySelectorAll('.counter');
-    // counterElements.forEach(counter => {
-    //     const target = parseInt(counter.getAttribute('data-target'));
-    //     animateCounter(counter, 0, target, 2000);
-    // });
+    // Animate GitHub statistics numbers
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length > 0) {
+        const observerStats = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statElement = entry.target;
+                    const value = parseInt(statElement.textContent);
+                    if (!isNaN(value)) {
+                        animateCounter(statElement, 0, value, 2000);
+                    }
+                    observerStats.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statNumbers.forEach(stat => {
+            observerStats.observe(stat);
+        });
+    }
     
     // Add particles animation to the hero section
     const createParticles = () => {
