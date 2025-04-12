@@ -16,10 +16,14 @@
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
             <div class="hamburger">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -41,8 +45,6 @@
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/svishwa0800/"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Svishwa2004"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -62,11 +64,12 @@
             
             <div class="about-content">
                 <div class="about-image">
-                    <img src="my-image.JPG" alt="About me image" >
+                    <img src="/my-image.JPG" alt="About me image" >
                 </div>
                 <div class="about-text">
-                    <h3>Professional Web Developer & Designer</h3>
-                    <p>I am a passionate web developer with over 5 years of experience in creating beautiful, functional, and user-friendly websites. I specialize in front-end development but also have strong back-end skills.</p>
+                    <h3>Full-Stack Developer & UI/UX Designer</h3>
+                    <p>I am a versatile full-stack developer with expertise in both front-end and back-end technologies. With over 5 years of experience building comprehensive web solutions, I specialize in creating seamless user experiences backed by robust server architectures.</p>
+                    <p>My passion lies in architecting elegant solutions to complex problems, navigating both sides of the development spectrum seamlessly. I take pride in writing clean, maintainable code and building applications that not only look beautiful but perform exceptionally.</p>
                     
                     <div class="info-list">
                         <div class="info-item">
@@ -87,162 +90,328 @@
                         </div>
                     </div>
                     
-                    <h3>Skills</h3>
-                    <div class="skills">
-                        <div class="skill">
-                            <div class="skill-name">HTML/CSS</div>
-                            <div class="skill-bar">
-                                <div class="skill-per" data-per="95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">JavaScript</div>
-                            <div class="skill-bar">
-                                <div class="skill-per" data-per="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">React</div>
-                            <div class="skill-bar">
-                                <div class="skill-per" data-per="80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <div class="skill-name">Node.js</div>
-                            <div class="skill-bar">
-                                <div class="skill-per" data-per="75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <a href="#" class="btn primary-btn" id="download-cv">Download CV</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
-                <h2>My Services</h2>
+                <h2>My Skills</h2>
                 <div class="separator"></div>
-                <p>What I can do for you</p>
+                <p>Technical expertise across the development stack</p>
             </div>
             
-            <div class="service-cards">
-                <div class="service-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Web Development</h3>
-                    <p>Creation of modern, responsive websites and web applications using cutting-edge technologies.</p>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3>Front-End Development</h3>
+                    </div>
+                    <div class="category-skills">
+                        <div class="skill-tag">HTML5/CSS3</div>
+                        <div class="skill-tag">JavaScript (ES6+)</div>
+                        <div class="skill-tag">React.js</div>
+                        <div class="skill-tag">Vue.js</div>
+                        <div class="skill-tag">Redux</div>
+                        <div class="skill-tag">Responsive Design</div>
+                        <div class="skill-tag">SASS/SCSS</div>
+                        <div class="skill-tag">Tailwind CSS</div>
+                        <div class="skill-tag">Bootstrap</div>
+                        <div class="skill-tag">Webpack</div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>UI/UX Design</h3>
-                    <p>Design of intuitive user interfaces with seamless user experience, from wireframes to prototypes.</p>
+                
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Back-End Development</h3>
+                    </div>
+                    <div class="category-skills">
+                        <div class="skill-tag">Node.js</div>
+                        <div class="skill-tag">Express.js</div>
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">Django</div>
+                        <div class="skill-tag">RESTful APIs</div>
+                        <div class="skill-tag">GraphQL</div>
+                        <div class="skill-tag">MongoDB</div>
+                        <div class="skill-tag">PostgreSQL</div>
+                        <div class="skill-tag">Firebase</div>
+                        <div class="skill-tag">AWS</div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile App Development</h3>
-                    <p>Development of cross-platform mobile apps that work flawlessly on iOS and Android devices.</p>
+                
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Others</h3>
+                    </div>
+                    <div class="category-skills">
+                        <div class="skill-tag">Git/GitHub</div>
+                        <div class="skill-tag">Docker</div>
+                        <div class="skill-tag">CI/CD</div>
+                        <div class="skill-tag">Jest</div>
+                        <div class="skill-tag">Cypress</div>
+                        <div class="skill-tag">Figma</div>
+                        <div class="skill-tag">Adobe XD</div>
+                        <div class="skill-tag">Agile/Scrum</div>
+                        <div class="skill-tag">TypeScript</div>
+                        <div class="skill-tag">NextJS</div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-search"></i>
-                    <h3>SEO Optimization</h3>
-                    <p>Improving your site's search engine ranking to increase visibility and organic traffic.</p>
+            </div>
+            
+            <div class="skill-progress-container">
+                <h3>Core Competencies</h3>
+                <div class="skill-progress">
+                    <div class="skill">
+                        <div class="skill-name">Full-Stack Development</div>
+                        <div class="skill-bar">
+                            <div class="skill-per" data-per="95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Front-End Architecture</div>
+                        <div class="skill-bar">
+                            <div class="skill-per" data-per="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Back-End Systems</div>
+                        <div class="skill-bar">
+                            <div class="skill-per" data-per="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Database Design</div>
+                        <div class="skill-bar">
+                            <div class="skill-per" data-per="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">UI/UX Design</div>
+                        <div class="skill-bar">
+                            <div class="skill-per" data-per="85%"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2>My Portfolio</h2>
+                <h2>Curated Projects</h2>
                 <div class="separator"></div>
-                <p>Selected works and projects</p>
+                <p>Selected full-stack development work</p>
             </div>
             
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="app">App</button>
-                <button class="filter-btn" data-filter="design">Design</button>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="frontend">Front-End</button>
+                <button class="filter-btn" data-filter="backend">Back-End</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
             </div>
             
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="https://www.bytewebster.com/frontendprojects/uploads/images/responsive-e-commerce-website-template-bytewebster.jpg" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>E-Commerce Website</h3>
-                                <p>Web Development</p>
-                                <a href="#" class="view-project">View Project</a>
+            <div class="project-grid">
+                <!-- Full-Stack E-commerce Platform -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="https://www.templateshub.net/uploads/1537207366electrothumb.jpg" alt="E-commerce Platform">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Redux</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <h3>Full-Stack E-commerce Platform</h3>
+                        <p>A comprehensive e-commerce solution with secure payments, inventory management, and customer analytics.</p>
+                        <div class="project-meta">
+                            <div class="project-problem">
+                                <strong>Problem:</strong> Creating a scalable e-commerce platform that handles high traffic and complex product relationships.
+                            </div>
+                            <div class="project-solution">
+                                <strong>Solution:</strong> Built a microservices architecture with separate services for products, orders, payments, and users.
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#case-study-ecommerce" class="btn secondary-btn">View Case Study</a>
+                            <a href="https://github.com/" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank" class="btn live-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Real-time Chat Application -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="project-image">
+                        <img src="https://cdn.dribbble.com/userupload/35973787/file/original-787dceabe1b53aa013f0608f4abd3055.png" alt="Real-time Chat App">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Socket.io</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Express</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <h3>Real-time Chat Application</h3>
+                        <p>A feature-rich messaging platform with real-time communication, file sharing, and end-to-end encryption.</p>
+                        <div class="project-meta">
+                            <div class="project-problem">
+                                <strong>Problem:</strong> Building a responsive chat application that handles real-time data without performance issues.
+                            </div>
+                            <div class="project-solution">
+                                <strong>Solution:</strong> Implemented WebSockets with Socket.io for real-time communication and optimized data transmission.
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#case-study-chat" class="btn secondary-btn">View Case Study</a>
+                            <a href="https://github.com/" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank" class="btn live-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Task Management Dashboard -->
+                <div class="project-card" data-category="frontend">
+                    <div class="project-image">
+                        <img src="https://i.etsystatic.com/27661493/r/il/61ddee/4772407423/il_1588xN.4772407423_plzq.jpg" alt="Task Management Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Redux</span>
+                            <span class="project-tag">Tailwind CSS</span>
+                            <span class="project-tag">Chart.js</span>
+                        </div>
+                        <h3>Task Management Dashboard</h3>
+                        <p>An intuitive project management interface with drag-and-drop task organization, time tracking, and progress analytics.</p>
+                        <div class="project-meta">
+                            <div class="project-problem">
+                                <strong>Problem:</strong> Creating an intuitive UI that simplifies complex project management workflows.
+                            </div>
+                            <div class="project-solution">
+                                <strong>Solution:</strong> Designed a modular front-end architecture with reusable components and clear state management.
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#case-study-dashboard" class="btn secondary-btn">View Case Study</a>
+                            <a href="https://github.com/" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank" class="btn live-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Management API -->
+                <div class="project-card" data-category="backend">
+                    <div class="project-image">
+                        <img src="https://cdn.dribbble.com/users/4189231/screenshots/17343305/media/202173138f9504c2eacd16e70698312c.png" alt="Content Management API">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">Express</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">AWS</span>
+                        </div>
+                        <h3>Content Management API</h3>
+                        <p>A robust API for content management with role-based access control, versioning, and media handling capabilities.</p>
+                        <div class="project-meta">
+                            <div class="project-problem">
+                                <strong>Problem:</strong> Developing a secure and scalable API that handles complex content relationships and permissions.
+                            </div>
+                            <div class="project-solution">
+                                <strong>Solution:</strong> Implemented a microservices architecture with container orchestration for improved scalability.
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#case-study-api" class="btn secondary-btn">View Case Study</a>
+                            <a href="https://github.com/" target="_blank" class="btn github-btn"><i class="fab fa-github"></i> View Code</a>
+                            <a href="#" target="_blank" class="btn live-btn"><i class="fas fa-external-link-alt"></i> Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Integration Section -->
+    <section id="github" class="github-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>GitHub Activities</h2>
+                <div class="separator"></div>
+                <p>My coding contributions and open source work</p>
+            </div>
+            
+            <div class="github-stats">
+                <div class="github-stat">
+                    <i class="fas fa-code-branch"></i>
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Repositories</span>
+                </div>
+                <div class="github-stat">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Stars</span>
+                </div>
+                <div class="github-stat">
+                    <i class="fas fa-code"></i>
+                    <span class="stat-number">500k+</span>
+                    <span class="stat-label">Lines of Code</span>
+                </div>
+                <div class="github-stat">
+                    <i class="fas fa-hands-helping"></i>
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Contributions</span>
+                </div>
+            </div>
+            
+            <div class="github-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-chart">
+                    <div class="contribution-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 10, 2025</div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-code-branch"></i> Pushed to e-commerce-microservices</h4>
+                                <p>Implemented payment gateway integration with Stripe and PayPal</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">April 5, 2025</div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-code"></i> Created repository task-management-dashboard</h4>
+                                <p>A modern task management application with drag-and-drop functionality</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">March 28, 2025</div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-star"></i> Starred react-performance-optimizations</h4>
+                                <p>Collection of techniques to optimize React application performance</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">March 20, 2025</div>
+                            <div class="timeline-content">
+                                <h4><i class="fas fa-code-branch"></i> Pull request merged in open-source-contributions</h4>
+                                <p>Fixed accessibility issues in navigation component</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="https://cdn.prod.website-files.com/6451597c62e55d5ea41332a5/6581054d151ed7f8823f4769_Create-Your-Own-Fitness-App-5.png" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Fitness App</h3>
-                                <p>Mobile App</p>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="design">
-                    <div class="portfolio-image">
-                        <img src="http://graphicdesigneye.com/front-end/assets/images/banner/branding-design.png" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Brand Identity</h3>
-                                <p>Design</p>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <img src="https://5.imimg.com/data5/MH/FQ/OV/SELLER-52007146/personal-portfolio-website-1000x1000.jpg" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Portfolio Website</h3>
-                                <p>Web Development</p>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <img src="https://media.licdn.com/dms/image/v2/C4D12AQE7p2OstXBmpw/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1619277092995?e=2147483647&v=beta&t=x0GxTcOvyIyr338R6J-FVIcWxgdVFo8Wwa640TPJw7Y" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Food Delivery App</h3>
-                                <p>Mobile App</p>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="design">
-                    <div class="portfolio-image">
-                        <img src="https://karnavatiuniversity.edu.in/wp-content/uploads/2024/02/B.-Design-Hons.-Product-Design-img.jpg" alt="Portfolio item">
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h3>Product Design</h3>
-                                <p>Design</p>
-                                <a href="#" class="view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="github-cta">
+                    <a href="https://github.com/Svishwa2004" target="_blank" class="btn primary-btn">View My GitHub Profile</a>
                 </div>
             </div>
         </div>
@@ -315,8 +484,6 @@
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/svishwa0800/"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/Svishwa2004"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
