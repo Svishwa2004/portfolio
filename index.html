@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahan Vishwa — IT Undergraduate & Technician</title>
+    <meta name="description" content="Portfolio of Sahan Vishwa Perera — IT Undergraduate at University of Moratuwa, IoT Engineer, and Full-Stack Developer from Sri Lanka.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="hero-canvas"></canvas>
+
+<!-- =============================================
+     NAVBAR
+============================================= -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <div class="nav-logo">SV<span>.portfolio()</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#contact" class="nav-cta">Contact Me</a>
+        </div>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+    <a href="#about"      onclick="closeNav()">About</a>
+    <a href="#skills"     onclick="closeNav()">Skills</a>
+    <a href="#experience" onclick="closeNav()">Experience</a>
+    <a href="#projects"   onclick="closeNav()">Projects</a>
+    <a href="#education"  onclick="closeNav()">Education</a>
+    <a href="#contact"    onclick="closeNav()">Contact</a>
+</div>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section id="hero">
+    <div class="hero-bg-orb hero-bg-orb-1"></div>
+    <div class="hero-bg-orb hero-bg-orb-2"></div>
+
+    <div class="container" style="position: relative;">
+        <!-- hero-content: all inline, no absolute children except scroll indicator -->
+        <div class="hero-content">
+            <div class="hero-greeting">
+                <div class="dot"></div>
+                Available for opportunities
+            </div>
+            <div class="hero-name">
+                <div class="first">Sahan</div>
+                <div class="last">Vishwa</div>
+            </div>
+            <div class="hero-title">
+                <span>IT Undergraduate</span>
+                <span class="divider">·</span>
+                <span>IoT Engineer</span>
+                <span class="divider">·</span>
+                <span>Developer</span>
+            </div>
+            <p class="hero-desc">
+                First-year B.Sc. (Hons) student at <strong>University of Moratuwa</strong> passionate about bridging hardware and software. I build end-to-end systems — from custom PCBs and embedded C++ firmware to real-time web dashboards.
+            </p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">
+                    <!-- Check circle -->
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
+                    View Projects
+                </a>
+                <a href="resume.html" target="_blank" class="btn-secondary">
+                    <!-- File text -->
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+                    View Resume
+                </a>
+            </div>
+
+            <!-- Social links — now inline, below buttons -->
+            <div class="hero-social">
+                <span class="hero-social-label">Find me on</span>
+                <a href="https://github.com/Svishwa2004" target="_blank" title="GitHub">
+                    <!-- GitHub -->
+                    <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/svishwa0800" target="_blank" title="LinkedIn">
+                    <!-- LinkedIn -->
+                    <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68 1.69 1.69 0 001.68 1.68M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
+                </a>
+                <a href="mailto:svishwa0800@gmail.com" title="Email">
+                    <!-- Mail -->
+                    <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator — keeps absolute right position -->
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span>scroll</span>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     ABOUT
+============================================= -->
+<section id="about">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Who I Am</div>
+            <h2 class="section-title">About <span>Me</span></h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-avatar-wrap reveal">
+                <div class="about-avatar">
+                    <div class="avatar-card">
+                        <img src="image.png" alt="Sahan Vishwa" class="avatar-img">
+                    </div>
+                    <div class="avatar-badge">
+                        <div class="avatar-badge-num">2025</div>
+                        <div class="avatar-badge-label">UoM Enrolled</div>
+                    </div>
+                    <div class="avatar-badge-2">
+                        <div class="avatar-badge-num" style="font-size: 1rem;">NVQ4</div>
+                        <div class="avatar-badge-label" style="font-size: 0.62rem;">ICT Certified</div>
+                    </div>
+                    <div class="avatar-glow"></div>
+                </div>
+            </div>
+
+            <div class="about-content reveal reveal-delay-2">
+                <h2>Bridging Hardware
+                    <span style="background: linear-gradient(135deg, var(--accent), var(--accent-3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        &amp; Software
+                    </span>
+                </h2>
+                <p class="about-text">
+                    I'm a first-year <strong>B.Sc. (Hons) IT &amp; Management</strong> student at the <strong>University of Moratuwa</strong> with a passion for building things that actually work — from soldering a custom PCB to deploying a real-time IoT dashboard.
+                </p>
+                <p class="about-text">
+                    My journey started with a <strong>6-month IT internship</strong> at Kandy District Secretariat and an <strong>NVQ Level 4</strong> certification in ICT. My first university project — an <strong>optical pH sensor</strong> — pushed me to design custom circuits, write embedded C++ firmware, and ship a web interface, all on my own.
+                </p>
+                <p class="about-text">
+                    I'm driven by curiosity and a relentless appetite for <strong>learning new technologies</strong> — whether that's firmware, full-stack dev, or AI tools. I believe the best engineers are the ones who can work across the entire stack.
+                </p>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-num">6mo</div>
+                        <div class="stat-label">Work Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">8+</div>
+                        <div class="stat-label">GitHub Repos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-num">A+</div>
+                        <div class="stat-label">ICT A/Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     SKILLS
+============================================= -->
+<section id="skills">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">What I Know</div>
+            <h2 class="section-title">Technical <span>Skills</span></h2>
+        </div>
+        <div class="skills-grid">
+            <!-- Languages -->
+            <div class="skill-category skill-category-1 reveal">
+                <div class="skill-cat-icon">
+                    <!-- Code / terminal icon -->
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="skill-cat-name">Languages</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">C / C++</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                </div>
+            </div>
+            <!-- Embedded & IoT -->
+            <div class="skill-category skill-category-2 reveal reveal-delay-1">
+                <div class="skill-cat-icon">
+                    <!-- CPU / chip icon -->
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
+                </div>
+                <div class="skill-cat-name">Embedded &amp; IoT</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">ESP32</span>
+                    <span class="skill-tag">PlatformIO</span>
+                    <span class="skill-tag">WebSocket</span>
+                    <span class="skill-tag">PWM Control</span>
+                    <span class="skill-tag">EasyEDA (PCB)</span>
+                    <span class="skill-tag">LittleFS</span>
+                </div>
+            </div>
+            <!-- Tools & Software -->
+            <div class="skill-category skill-category-3 reveal reveal-delay-2">
+                <div class="skill-cat-icon">
+                    <!-- Wrench / settings icon -->
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <div class="skill-cat-name">Tools &amp; Software</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git &amp; GitHub</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">Canva</span>
+                </div>
+            </div>
+            <!-- Soft Skills -->
+            <div class="skill-category skill-category-4 reveal reveal-delay-3">
+                <div class="skill-cat-icon">
+                    <!-- Users / people icon -->
+                    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div class="skill-cat-name">Soft Skills</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                    <span class="skill-tag">Communication</span>
+                    <span class="skill-tag">Data Management</span>
+                    <span class="skill-tag">Self-Learning</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     EXPERIENCE
+============================================= -->
+<section id="experience">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">My Journey</div>
+            <h2 class="section-title">Work <span>Experience</span></h2>
+        </div>
+        <div class="timeline">
+            <!-- Internship -->
+            <div class="timeline-item reveal">
+                <div class="timeline-dot">
+                    <!-- Briefcase -->
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/><path d="M2 12h20"/></svg>
+                </div>
+                <div class="timeline-body">
+                    <div class="timeline-meta">
+                        <div>
+                            <div class="timeline-role">IT Technician — Internship</div>
+                            <div class="timeline-org">Kandy District Secretariat, Kandy</div>
+                        </div>
+                        <div class="timeline-date">Jan 2022 – Jun 2022</div>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Managed digital documentation workflows and streamlined data entry processes using Microsoft Excel, improving record accuracy and retrieval efficiency</li>
+                        <li>Drafted and formatted official government correspondence using Microsoft Word, supporting daily administrative operations across multiple departments</li>
+                        <li>Performed routine system maintenance and configuration tasks including software installations, updates, and backup procedures</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- NVQ -->
+            <div class="timeline-item reveal reveal-delay-1">
+                <div class="timeline-dot">
+                    <!-- Award / certificate -->
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                </div>
+                <div class="timeline-body">
+                    <div class="timeline-meta">
+                        <div>
+                            <div class="timeline-role">ICT Technician — NVQ Level 4</div>
+                            <div class="timeline-org">College of Technology, Kandy</div>
+                        </div>
+                        <div class="timeline-date">2022</div>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Completed a nationally recognized certificate course in ICT Technician at NVQ Level 4, covering hardware, networking, and systems support</li>
+                        <li>Gained hands-on technical skills applied directly in a government IT environment internship</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     PROJECTS
+============================================= -->
+<section id="projects">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">What I've Built</div>
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+        </div>
+        <div class="projects-grid">
+
+            <!-- pH Sensor — Featured -->
+            <div class="project-card reveal" style="grid-column: 1 / -1;">
+                <span class="project-feat-badge">⭐ Featured</span>
+                <div class="project-feat-inner">
+                    <div>
+                        <div class="project-top" style="margin-bottom: 1rem;">
+                            <div class="project-icon">
+                                <!-- Zap / electric / sensor -->
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                        </div>
+                        <div class="project-name">Optical pH Sensor for Hydroponic Systems</div>
+                        <p class="project-desc" style="margin-top: 0.5rem;">
+                            A complete end-to-end IoT system designed and built solo as a first-year university project. Combines custom PCB design, ESP32 firmware with an 8-state FSM, Beer-Lambert Law colorimetry, and a real-time WebSocket web dashboard — all independently engineered.
+                        </p>
+                        <div class="project-tech" style="margin-top: 1rem;">
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">ESP32</span>
+                            <span class="tech-tag">PlatformIO</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">LittleFS</span>
+                            <span class="tech-tag">EasyEDA</span>
+                            <span class="tech-tag">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                    <div class="feat-highlights">
+                        <div class="feat-highlights-label">Key Highlights</div>
+                        <div class="feat-highlight-list">
+                            <div class="feat-highlight-item">
+                                <span class="arrow">▸</span>
+                                <span>8-state FSM automating full fluidic cycle with 3-pump stack via PWM</span>
+                            </div>
+                            <div class="feat-highlight-item">
+                                <span class="arrow">▸</span>
+                                <span>Custom PCB with LM2596 buck regulator &amp; IRLZ44N MOSFET switches</span>
+                            </div>
+                            <div class="feat-highlight-item">
+                                <span class="arrow">▸</span>
+                                <span>Beer-Lambert Law colorimetry — ±0.025 pH accuracy, Rs. 0.30/test</span>
+                            </div>
+                            <div class="feat-highlight-item">
+                                <span class="arrow">▸</span>
+                                <span>Real-time WebSocket dashboard with persistent NVS calibration</span>
+                            </div>
+                        </div>
+                        <!-- Corrected GitHub URL -->
+                        <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank" class="feat-github-btn">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio -->
+            <div class="project-card reveal reveal-delay-1">
+                <div class="project-top">
+                    <div class="project-icon">
+                        <!-- Globe / layout icon -->
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    </div>
+                    <div class="project-links">
+                        <!-- GitHub icon link — corrected href -->
+                        <a href="https://github.com/Svishwa2004" target="_blank" class="project-link" title="GitHub">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-name">Personal Portfolio Website</div>
+                <p class="project-desc">This very portfolio — a modern, dark-themed single-page site with animated particles, scroll-reveal effects, and responsive design built with pure HTML, CSS, and JavaScript.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Canvas API</span>
+                </div>
+            </div>
+
+            <!-- Calm Care Checker -->
+            <div class="project-card reveal reveal-delay-2">
+                <div class="project-top">
+                    <div class="project-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                        <!-- Heart / wellness icon -->
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </div>
+                    <div class="project-links">
+                        <!-- GitHub icon link — corrected href -->
+                        <a href="https://github.com/Svishwa2004/calm-care-checker" target="_blank" class="project-link" title="GitHub">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-name">Calm Care Checker</div>
+                <p class="project-desc">A TypeScript web application for mental wellness check-ins. Built using modern web technologies to help users monitor and reflect on their wellbeing in a calm, accessible interface.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     EDUCATION
+============================================= -->
+<section id="education">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-label">Academic Background</div>
+            <h2 class="section-title">My <span>Education</span></h2>
+        </div>
+        <div class="edu-grid">
+            <!-- University -->
+            <div class="edu-card reveal" style="--edu-color: linear-gradient(90deg, #6366f1, #8b5cf6);">
+                <div class="edu-icon">
+                    <!-- Book open / university -->
+                    <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                </div>
+                <div class="edu-degree">B.Sc. (Hons) Information Technology &amp; Management</div>
+                <div class="edu-school">University of Moratuwa</div>
+                <div class="edu-year">2025 – 2029 · Expected</div>
+                <div class="edu-grades">
+                    <span class="grade-pill" style="background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.3); color: var(--accent);">Currently Enrolled</span>
+                </div>
+            </div>
+            <!-- A/L -->
+            <div class="edu-card reveal reveal-delay-1" style="--edu-color: linear-gradient(90deg, #06b6d4, #3b82f6);">
+                <div class="edu-icon">
+                    <!-- Graduation cap -->
+                    <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="edu-degree">G.C.E. Advanced Level</div>
+                <div class="edu-school">St. Anthony's College, Kandy</div>
+                <div class="edu-year">2023</div>
+                <div class="edu-grades">
+                    <span class="grade-pill">ICT: A</span>
+                    <span class="grade-pill">Accounting: A</span>
+                    <span class="grade-pill">Economics: B</span>
+                </div>
+            </div>
+            <!-- O/L -->
+            <div class="edu-card reveal reveal-delay-2" style="--edu-color: linear-gradient(90deg, #10b981, #06b6d4);">
+                <div class="edu-icon">
+                    <!-- File / school -->
+                    <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div class="edu-degree">G.C.E. Ordinary Level</div>
+                <div class="edu-school">St. Anthony's College, Kandy</div>
+                <div class="edu-year">2020</div>
+                <div class="edu-grades">
+                    <span class="grade-pill">IT: A</span>
+                    <span class="grade-pill">English: A</span>
+                    <span class="grade-pill">Religion: A</span>
+                    <span class="grade-pill">+ 6 Subjects</span>
+                </div>
+            </div>
+            <!-- NVQ -->
+            <div class="edu-card reveal reveal-delay-3" style="--edu-color: linear-gradient(90deg, #f59e0b, #ef4444);">
+                <div class="edu-icon">
+                    <!-- Award / shield check -->
+                    <svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>
+                </div>
+                <div class="edu-degree">National Certificate — ICT Technician (NVQ Level 4)</div>
+                <div class="edu-school">College of Technology, Kandy</div>
+                <div class="edu-year">2022</div>
+                <div class="edu-grades">
+                    <span class="grade-pill" style="background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: #f59e0b;">Nationally Recognized</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     CONTACT
+============================================= -->
+<section id="contact">
+    <div class="container">
+        <div class="contact-wrap">
+            <div class="section-header reveal">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Let's <span>Connect</span></h2>
+            </div>
+            <p class="contact-tagline reveal">
+                I'm open to internships, collaborations, and exciting opportunities. Whether you have a project in mind or just want to say hi — my inbox is always open.
+            </p>
+
+            <div class="contact-cards reveal">
+                <a href="mailto:svishwa0800@gmail.com" class="contact-card cc-email">
+                    <div class="contact-card-icon">
+                        <!-- Mail -->
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-card-text">
+                        <div class="contact-card-label">Email</div>
+                        <div class="contact-card-value">svishwa0800@gmail.com</div>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/svishwa0800" target="_blank" class="contact-card cc-linkedin">
+                    <div class="contact-card-icon">
+                        <!-- LinkedIn -->
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68 1.69 1.69 0 001.68 1.68M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
+                    </div>
+                    <div class="contact-card-text">
+                        <div class="contact-card-label">LinkedIn</div>
+                        <div class="contact-card-value">in/svishwa0800</div>
+                    </div>
+                </a>
+                <a href="https://github.com/Svishwa2004" target="_blank" class="contact-card cc-github">
+                    <div class="contact-card-icon">
+                        <!-- GitHub -->
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                    </div>
+                    <div class="contact-card-text">
+                        <div class="contact-card-label">GitHub</div>
+                        <div class="contact-card-value">Svishwa2004</div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="reveal">
+                <a href="mailto:svishwa0800@gmail.com" class="contact-cta">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    Say Hello
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-copy">
+            Designed &amp; built by <span>Sahan Vishwa</span> · 2025
+        </div>
+        <div class="footer-links">
+            <a href="resume.html" target="_blank">Resume</a>
+            <a href="https://github.com/Svishwa2004" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/svishwa0800" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
