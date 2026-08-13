@@ -326,7 +326,7 @@
                         </div>
                         <div class="project-name">Optical pH Sensor for Hydroponic Systems</div>
                         <p class="project-desc" style="margin-top: 0.5rem;">
-                            A complete end-to-end IoT system designed and built solo as a first-year university project. Combines custom PCB design, ESP32 firmware with an 8-state FSM, Beer-Lambert Law colorimetry, and a real-time WebSocket web dashboard — all independently engineered.
+                            A complete end-to-end IoT system designed and built solo as a first-year university project (Ver 2.1). Combines custom EasyEDA PCB design, ESP32 firmware with a 12-state non-blocking FSM, dual-wavelength (6500K+3000K) Beer-Lambert HSV colorimetry, Dynamic Blanking, and a real-time WebSocket dashboard — all independently engineered.
                         </p>
                         <div class="project-tech" style="margin-top: 1rem;">
                             <span class="tech-tag">C++</span>
@@ -334,7 +334,8 @@
                             <span class="tech-tag">PlatformIO</span>
                             <span class="tech-tag">WebSocket</span>
                             <span class="tech-tag">LittleFS</span>
-                            <span class="tech-tag">EasyEDA</span>
+                            <span class="tech-tag">EasyEDA (PCB)</span>
+                            <span class="tech-tag">3D CAD</span>
                             <span class="tech-tag">HTML/CSS/JS</span>
                         </div>
                     </div>
@@ -343,19 +344,19 @@
                         <div class="feat-highlight-list">
                             <div class="feat-highlight-item">
                                 <span class="arrow">▸</span>
-                                <span>8-state FSM automating full fluidic cycle with 3-pump stack via PWM</span>
+                                <span>12-state non-blocking FSM automating 3-pump stack (fill, dose, mix, measure, R385 vacuum drain)</span>
                             </div>
                             <div class="feat-highlight-item">
                                 <span class="arrow">▸</span>
-                                <span>Custom PCB with LM2596 buck regulator &amp; IRLZ44N MOSFET switches</span>
+                                <span>Dynamic Blanking stage nulls background water discolouration before dye dosing</span>
                             </div>
                             <div class="feat-highlight-item">
                                 <span class="arrow">▸</span>
-                                <span>Beer-Lambert Law colorimetry — ±0.025 pH accuracy, Rs. 0.30/test</span>
+                                <span>Dual-wavelength optics (6500K+3000K LEDs) &amp; HSV colorimetry with firmware validity gating</span>
                             </div>
                             <div class="feat-highlight-item">
                                 <span class="arrow">▸</span>
-                                <span>Real-time WebSocket dashboard with persistent NVS calibration</span>
+                                <span>Custom PCB (LM2596 buck, flyback-protected IRLZ44N MOSFETs) &amp; 3D-printed flow cell</span>
                             </div>
                         </div>
                         <!-- Corrected GitHub URL -->

@@ -711,13 +711,13 @@
 
         <div class="project-item">
             <div class="project-item__header">
-                <div class="project-item__name">Optical pH Sensor for Hydroponic Systems — <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank">GitHub</a></div>
-                <div class="project-item__tech">C++, ESP32, PlatformIO, PWM, WebSocket, HTML/CSS/JS, EasyEDA</div>
+                <div class="project-item__name">Automated Optical pH Sensor (Ver 2.1) — <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank">GitHub</a></div>
+                <div class="project-item__tech">C++, ESP32, PlatformIO, FSM, WebSocket, LittleFS, EasyEDA, 3D CAD</div>
             </div>
             <ul class="experience-item__bullets" style="margin-top: 0.35rem;">
-                <li>Engineered a <strong>full-stack IoT colorimetric pH sensor</strong> as a solo first-year university project — designing all firmware, custom PCB, 3D-printed optics enclosure, and chemical calibration</li>
-                <li>Implemented an <strong>8-state FSM</strong> in C++ on an ESP32 automating a fluidic cycle with a 3-pump stack via PWM; designed a custom PCB with LM2596 buck regulator and IRLZ44N MOSFET switches</li>
-                <li>Applied <strong>Beer-Lambert Law</strong> colorimetry with TCS34725 RGB sensor (±0.025 pH accuracy); built a real-time <strong>WebSocket dashboard</strong> with persistent calibration via ESP32 NVS</li>
+                <li>Engineered an <strong>automated colorimetric pH sensor</strong> (IS1901 Final Report) — designing embedded C++ firmware, custom PCB, 3D-printed optics, 3-pump fluidics, and web dashboard</li>
+                <li>Implemented a <strong>12-state non-blocking FSM</strong> on ESP32 driving a 3-pump stack (peristaltic dosing &amp; R385 vacuum drain) with a <strong>Dynamic Blanking</strong> background-nulling routine</li>
+                <li>Designed dual-wavelength optics (6500K+3000K LEDs), TCS34725 HSV colorimetry, ESP32 NVS flash calibration storage, saturation validity gating, and a <strong>custom EasyEDA PCB</strong></li>
             </ul>
         </div>
     </section>
