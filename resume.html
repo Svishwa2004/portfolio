@@ -439,20 +439,28 @@
         }
 
         /* ============================================
-           PRINT STYLES — For PDF export
+           PRINT STYLES — For PDF export & Single Page Print
            ============================================ */
+        @page {
+            size: A3 portrait;
+            margin: 8mm;
+        }
+
         @media print {
-            body {
+            html, body {
                 background: white;
-                font-size: 10pt;
+                font-size: 10.5pt;
+                width: 100%;
+                height: 100%;
             }
 
             .resume {
-                margin: 0;
-                padding: 0.5in 0.6in;
+                margin: 0 auto;
+                padding: 8mm 10mm;
                 box-shadow: none;
                 border-radius: 0;
-                max-width: none;
+                max-width: 100%;
+                width: 100%;
             }
 
             .header {
