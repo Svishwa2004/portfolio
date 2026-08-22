@@ -1,10 +1,18 @@
 /* =============================================
-   PARTICLE CANVAS
+   PAPER SPECKLE CANVAS
+   Charcoal and amber flecks at low alpha so the
+   canvas reads as print texture on the paper
+   surface rather than a glowing particle mesh.
 ============================================= */
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 let particles = [];
 let mouse = { x: null, y: null };
+
+const INK = '46, 48, 56';
+const AMBER = '242, 171, 29';
 
 function resize() {
     canvas.width  = window.innerWidth;
@@ -21,11 +29,11 @@ class Particle {
     reset() {
         this.x       = Math.random() * canvas.width;
         this.y       = Math.random() * canvas.height;
-        this.size    = Math.random() * 1.5 + 0.5;
-        this.speedX  = (Math.random() - 0.5) * 0.3;
-        this.speedY  = (Math.random() - 0.5) * 0.3;
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.color   = Math.random() > 0.5 ? '#6366f1' : '#06b6d4';
+        this.size    = Math.random() * 1.6 + 0.6;
+        this.speedX  = (Math.random() - 0.5) * 0.24;
+        this.speedY  = (Math.random() - 0.5) * 0.24;
+        this.opacity = Math.random() * 0.28 + 0.08;
+        this.rgb     = Math.random() > 0.68 ? AMBER : INK;
     }
 
     update() {
@@ -34,7 +42,7 @@ class Particle {
         if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
             this.reset();
         }
-        if (mouse.x) {
+        if (mouse.x !== null) {
             const dx = mouse.x - this.x;
             const dy = mouse.y - this.y;
             const dist = Math.sqrt(dx * dx + dy * dy);
@@ -48,17 +56,15 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle   = this.color;
-        ctx.globalAlpha = this.opacity;
+        ctx.fillStyle = `rgba(${this.rgb}, ${this.opacity})`;
         ctx.fill();
-        ctx.globalAlpha = 1;
     }
 }
 
 function initParticles() {
     particles = [];
-    const count = Math.floor(canvas.width * canvas.height / 10000);
-    for (let i = 0; i < Math.min(count, 120); i++) {
+    const count = Math.floor(canvas.width * canvas.height / 12000);
+    for (let i = 0; i < Math.min(count, 100); i++) {
         particles.push(new Particle());
     }
 }
@@ -69,15 +75,13 @@ function drawConnections() {
             const dx   = particles[i].x - particles[j].x;
             const dy   = particles[i].y - particles[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 100) {
+            if (dist < 96) {
                 ctx.beginPath();
-                ctx.strokeStyle  = '#6366f1';
-                ctx.globalAlpha  = (1 - dist / 100) * 0.12;
-                ctx.lineWidth    = 0.5;
+                ctx.strokeStyle = `rgba(${INK}, ${(1 - dist / 96) * 0.07})`;
+                ctx.lineWidth   = 0.6;
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
                 ctx.stroke();
-                ctx.globalAlpha = 1;
             }
         }
     }
@@ -90,8 +94,10 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-initParticles();
-animate();
+if (!reduceMotion) {
+    initParticles();
+    animate();
+}
 
 /* =============================================
    NAVBAR SCROLL EFFECT
@@ -104,13 +110,25 @@ window.addEventListener('scroll', () => {
 /* =============================================
    MOBILE NAV TOGGLE
 ============================================= */
+const navDrawer = document.getElementById('navDrawer');
+const navToggle = document.getElementById('navToggle');
+
 function toggleNav() {
-    document.getElementById('navDrawer').classList.toggle('open');
+    const open = navDrawer.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
 }
 
 function closeNav() {
-    document.getElementById('navDrawer').classList.remove('open');
+    navDrawer.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
 }
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && navDrawer.classList.contains('open')) {
+        closeNav();
+        navToggle.focus();
+    }
+});
 
 /* =============================================
    SCROLL REVEAL
@@ -130,21 +148,10 @@ const revealObserver = new IntersectionObserver(
 reveals.forEach(el => revealObserver.observe(el));
 
 /* =============================================
-   FEATURED PROJECT RESPONSIVE LAYOUT
-============================================= */
-function handleFeaturedLayout() {
-    const inner = document.querySelector('.project-feat-inner');
-    if (!inner) return;
-    inner.style.gridTemplateColumns = window.innerWidth < 700 ? '1fr' : '1fr 1fr';
-}
-window.addEventListener('resize', handleFeaturedLayout);
-handleFeaturedLayout();
-
-/* =============================================
    ACTIVE NAV LINK ON SCROLL
 ============================================= */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
 
 window.addEventListener('scroll', () => {
     let current = '';
@@ -152,8 +159,6 @@ window.addEventListener('scroll', () => {
         if (window.scrollY >= section.offsetTop - 120) current = section.id;
     });
     navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === '#' + current
-            ? 'var(--text-primary)'
-            : '';
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
     });
 });
