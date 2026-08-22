@@ -269,7 +269,6 @@ body::before {
 .blob-photo img {
     width: 100%;
     display: block;
-    filter: grayscale(1) contrast(1.08);
     border-radius: var(--r-lg) var(--r-lg) 0 var(--r-lg);
     outline: none;
 }
