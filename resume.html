@@ -439,6 +439,44 @@
         }
 
         /* ============================================
+           TOOLBAR — Download button (screen only)
+           ============================================ */
+        .resume-toolbar {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: var(--font-size-sm);
+            font-weight: 600;
+            padding: 0.6rem 1.1rem;
+            border-radius: 999px;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--color-accent-light);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .download-btn svg {
+            width: 15px;
+            height: 15px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* ============================================
            PRINT STYLES — For PDF export & Single Page Print
            ============================================ */
         @page {
@@ -447,6 +485,10 @@
         }
 
         @media print {
+            .resume-toolbar {
+                display: none;
+            }
+
             html, body {
                 background: white;
                 font-size: 10.5pt;
@@ -525,6 +567,13 @@
     </style>
 </head>
 <body>
+
+<div class="resume-toolbar">
+    <a class="download-btn" href="Sahan-Vishwa-Resume.pdf" download="Sahan-Vishwa-Resume.pdf" aria-label="Download resume as PDF">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Download PDF
+    </a>
+</div>
 
 <div class="resume">
     <!-- ===== HEADER ===== -->

@@ -59,6 +59,17 @@ window.addEventListener('resize', () => {
 let smoothRaf = 0;
 const rootEl = document.documentElement;
 
+/* Always (re)load at the very top — never restore scroll position. */
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+function jumpToTop() {
+    const prev = rootEl.style.scrollBehavior;
+    rootEl.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    rootEl.style.scrollBehavior = prev;
+}
+jumpToTop();
+window.addEventListener('pageshow', jumpToTop);
+
 function cancelSmooth() {
     if (smoothRaf) cancelAnimationFrame(smoothRaf);
     smoothRaf = 0;
