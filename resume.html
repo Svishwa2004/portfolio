@@ -442,7 +442,7 @@
            PRINT STYLES — For PDF export & Single Page Print
            ============================================ */
         @page {
-            size: A3 portrait;
+            size: A4 portrait;
             margin: 8mm;
         }
 
@@ -530,7 +530,7 @@
     <!-- ===== HEADER ===== -->
     <header class="header">
         <h1 class="header__name">Sahan Vishwa Perera</h1>
-        <p class="header__title">IT Undergraduate | Embedded Systems & IoT Developer | Software Engineer</p>
+        <p class="header__title">Software Engineer | TypeScript · WebMCP · IoT | IT Undergraduate, University of Moratuwa</p>
         <div class="header__contact">
             <span class="header__contact-item">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.72 11.72 0 003.67.59 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.27a1 1 0 011 1 11.72 11.72 0 00.59 3.67 1 1 0 01-.25 1.01l-2.2 2.2z"/></svg>
@@ -566,7 +566,7 @@
             <h2 class="section__title">Professional Summary</h2>
         </div>
         <p class="summary__text">
-            Results-driven IT Undergraduate at the <strong>University of Moratuwa</strong> (B.Sc. Hons in Information Technology &amp; Management, 2025–2029) with demonstrated expertise in <strong>embedded systems development, firmware engineering, and full-stack IoT solutions</strong>. Sole engineer of a production-grade automated optical pH sensor — spanning custom PCB design, C++ firmware (ESP32), 3-pump fluidic control, and a real-time WebSocket web dashboard. Holds an <strong>NVQ Level 4 certification in ICT</strong> and 6 months of hands-on IT support experience. Proficient in <strong>C/C++, Java, JavaScript, SQL, HTML/CSS</strong>; skilled in Git, PlatformIO, EasyEDA, and VS Code. Seeking opportunities to apply embedded systems, software engineering, and hardware-software integration skills.
+            Software-engineering undergraduate at the <strong>University of Moratuwa</strong> (B.Sc. Hons IT &amp; Management, 2025–2029) building <strong>privacy-preserving WebMCP agent tooling (TypeScript/Vite/Node.js)</strong> and <strong>production IoT firmware (C++/ESP32)</strong>. Shipped <strong>Airlock</strong> — in-browser spreadsheet analysis an AI agent queries without receiving the file (live demo) — and <strong>WebMCP-Gauge</strong> — lint + run harness (4,500 trials) measuring whether agents call exposed tools. Also sole engineer of an automated optical pH sensor (12-state FSM, custom PCB, WebSocket dashboard). Seeking a <strong>software-engineering internship</strong>.
         </p>
     </section>
 
@@ -630,9 +630,8 @@
                 <div class="experience-item__date">Jan 2022 – Jun 2022</div>
             </div>
             <ul class="experience-item__bullets">
-                <li>Administered and maintained <strong>desktop hardware, operating systems, and software</strong> for a government IT environment, performing installations, updates, troubleshooting, and backup procedures</li>
-                <li>Automated and streamlined <strong>data entry and document management workflows</strong> using Microsoft Excel and Microsoft Word, improving record accuracy and cross-departmental retrieval efficiency</li>
-                <li>Supported <strong>network connectivity and system configuration</strong> tasks, diagnosing hardware and software issues to minimize operational downtime across multiple departments</li>
+                <li>Maintained <strong>desktop hardware, OS imaging, and software</strong> for a government IT environment — installs, troubleshooting, and backups across multiple departments</li>
+                <li>Streamlined <strong>Excel/Word data-entry and document workflows</strong>, improving record accuracy and retrieval; diagnosed connectivity and config issues to cut downtime</li>
             </ul>
         </div>
     </section>
@@ -653,6 +652,7 @@
                     <span class="skill-tag">Java</span>
                     <span class="skill-tag">JavaScript</span>
                     <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Node.js</span>
                     <span class="skill-tag">SQL</span>
                     <span class="skill-tag">HTML5</span>
                     <span class="skill-tag">CSS3</span>
@@ -675,12 +675,24 @@
             </div>
 
             <div class="skills-category">
+                <div class="skills-category__label">Web &amp; AI-Agent Tooling</div>
+                <div class="skills-category__tags">
+                    <span class="skill-tag">WebMCP Tools</span>
+                    <span class="skill-tag">Vite</span>
+                    <span class="skill-tag">PapaParse</span>
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Chrome CDP</span>
+                    <span class="skill-tag">LLM Judge Evals</span>
+                    <span class="skill-tag">GitHub Actions</span>
+                    <span class="skill-tag">CLI Development</span>
+                </div>
+            </div>
+
+            <div class="skills-category">
                 <div class="skills-category__label">IT Support &amp; Systems</div>
                 <div class="skills-category__tags">
                     <span class="skill-tag">Hardware Troubleshooting</span>
                     <span class="skill-tag">OS Configuration</span>
-                    <span class="skill-tag">Software Installation</span>
-                    <span class="skill-tag">System Maintenance</span>
                     <span class="skill-tag">Network Connectivity</span>
                     <span class="skill-tag">Data Backup &amp; Recovery</span>
                 </div>
@@ -694,8 +706,6 @@
                     <span class="skill-tag">VS Code</span>
                     <span class="skill-tag">Version Control</span>
                     <span class="skill-tag">Microsoft Office Suite</span>
-                    <span class="skill-tag">Adobe Photoshop</span>
-                    <span class="skill-tag">Canva</span>
                 </div>
             </div>
 
@@ -703,10 +713,8 @@
                 <div class="skills-category__label">Soft Skills</div>
                 <div class="skills-category__tags">
                     <span class="skill-tag">Analytical Problem Solving</span>
-                    <span class="skill-tag">Cross-functional Collaboration</span>
                     <span class="skill-tag">Technical Communication</span>
                     <span class="skill-tag">Self-directed Learning</span>
-                    <span class="skill-tag">Attention to Detail</span>
                 </div>
             </div>
         </div>
@@ -737,13 +745,34 @@
 
         <div class="project-item">
             <div class="project-item__header">
-                <div class="project-item__name">Automated Optical pH Sensor for Hydroponic Systems — <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank">GitHub</a></div>
-                <div class="project-item__tech">C++ · ESP32 · PlatformIO · Firmware Development · FSM · WebSocket · LittleFS · PCB Design (EasyEDA) · 3D CAD · HTML/CSS/JavaScript</div>
+                <div class="project-item__name">Airlock — Private In-Browser Spreadsheet Analyst (Devpost WebMCP Hackathon) — <a href="https://github.com/Svishwa2004/airlock" target="_blank">GitHub</a> · <a href="https://airlock-app.netlify.app/" target="_blank">Live Demo</a></div>
+                <div class="project-item__tech">TypeScript · Vite · WebMCP · PapaParse · HTML/CSS</div>
             </div>
             <ul class="experience-item__bullets" style="margin-top: 0.35rem;">
-                <li>Sole engineer of a <strong>production-grade automated IoT colorimetric pH sensor</strong> — independently delivered embedded C++ firmware, custom PCB, 3D-printed optics enclosure, 3-pump fluidic system, and a real-time web dashboard from concept to completion</li>
-                <li>Architected a <strong>12-state non-blocking FSM</strong> in C++ on ESP32 to automate the complete measurement cycle (fill → dose → mix → Dynamic Blanking → measure → vacuum drain), achieving reliable hands-free operation</li>
-                <li>Engineered dual-wavelength optical subsystem (6500K + 3000K LEDs), TCS34725 RGB sensor with HSV colorimetry, firmware-level saturation validity gating, and persistent NVS calibration — delivering accurate pH measurement with minimal reagent cost</li>
+                <li>Built for the <strong>Devpost WebMCP Hackathon challenge</strong> — a <strong>privacy-preserving data workbench</strong> where CSV parsing and all aggregations run entirely in the browser tab — an AI agent queries 7 WebMCP tools (<strong>describe_dataset, sum_by_category, filter_rows, monthly_trend, find_anomalies, top_expenses, clear_highlights</strong>) and receives only aggregates while the network stays silent</li>
+                <li>Designed a <strong>default-on privacy gate</strong> (file name + row details withheld, matches highlighted on the human's screen) with unit tests per tool; documented 5 empirically verified WebMCP API behaviors against Chrome 151</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-item__header">
+                <div class="project-item__name">WebMCP-Gauge — Agent Tool-Invocation Measurement Harness — <a href="https://github.com/Svishwa2004/webmcp-gauge" target="_blank">GitHub</a></div>
+                <div class="project-item__tech">Node.js 24 · JavaScript (ESM) · Chrome CDP · LLM Judge Evals · GitHub Actions</div>
+            </div>
+            <ul class="experience-item__bullets" style="margin-top: 0.35rem;">
+                <li>Shipped <strong>lint (static manifest rules) + run (S sessions × R repeats, Wilson intervals, JSONL resume, honest Shields badges)</strong> CLI plus a <strong>Marketplace GitHub Action</strong> with split exit codes separating "could not measure" from genuine regressions</li>
+                <li>Published <strong>16 runs / 4,500 trials</strong>: clean manifest <strong>99.3%</strong> vs deliberately degraded twin <strong>83.1%</strong> (sum_by_category 60.0%, top_expenses 26.7%), proving the metric discriminates real description defects</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-item__header">
+                <div class="project-item__name">Automated Optical pH Sensor for Hydroponic Systems — <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank">GitHub</a></div>
+                <div class="project-item__tech">C++ · ESP32 · PlatformIO · FSM · WebSocket · LittleFS · PCB Design (EasyEDA) · HTML/CSS/JavaScript</div>
+            </div>
+            <ul class="experience-item__bullets" style="margin-top: 0.35rem;">
+                <li>Sole engineer of a <strong>production-grade automated IoT colorimetric pH sensor</strong> — embedded C++ firmware, custom PCB, 3D-printed optics enclosure, 3-pump fluidics, and real-time web dashboard from concept to completion</li>
+                <li>Architected a <strong>12-state non-blocking FSM</strong> (fill → dose → mix → Dynamic Blanking → measure → vacuum drain) with dual-wavelength optics, TCS34725 HSV colorimetry, and NVS calibration for reliable hands-free operation</li>
             </ul>
         </div>
     </section>
