@@ -519,9 +519,49 @@
                 color: var(--color-accent) !important;
             }
 
-            .section__header {
-                break-after: avoid;
+            /* Native list markers in print: custom positioned
+               ::before markers make Chrome emit <li> text out of
+               reading order in the PDF text layer (breaks ATS parsing). */
+            .experience-item__bullets {
+                list-style: disc;
+                padding-left: 1.2rem;
             }
+
+            .experience-item__bullets li {
+                position: static;
+                padding-left: 0;
+            }
+
+            .experience-item__bullets li::before {
+                content: none;
+            }
+
+            /* Linear single-column flow so the PDF text layer
+               follows reading order (no grid/flex interleaving). */
+            .skills-grid {
+                display: block;
+            }
+
+            .skills-category {
+                margin-bottom: var(--space-md);
+            }
+
+            .project-item__header,
+            .experience-item__header,
+            .education-item {
+                display: block;
+            }
+
+            .education-item__date,
+            .experience-item__date,
+            .cert-item__date {
+                text-align: left;
+                margin-left: 0;
+            }
+
+            /* NOTE: no break-after/break-inside:avoid rules here on
+               purpose — they make Chrome emit PDF text out of
+               reading order (verified by extraction tests). */
 
             .education-item,
             .experience-item,
