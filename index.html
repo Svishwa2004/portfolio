@@ -3,505 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sahan Vishwa — IT Undergraduate &amp; Technician</title>
-    <meta name="description" content="Portfolio of Sahan Vishwa Perera — IT Undergraduate at University of Moratuwa, IoT Engineer, and Full-Stack Developer from Sri Lanka.">
+    <title>Sahan Vishwa &mdash; Tech Enthusiast &amp; IT Undergraduate</title>
+    <meta name="description" content="Portfolio of Sahan Vishwa Perera &mdash; IT Undergraduate at the University of Moratuwa, IoT Engineer, and tech enthusiast from Sri Lanka.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script>document.documentElement.classList.add('js');</script>
+    <meta name="theme-color" content="#0a0a12" id="themeColor">
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            var savedTheme = localStorage.getItem('sv-theme');
+            if (!savedTheme) {
+                savedTheme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+            }
+            document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+        } catch (e) {
+            document.documentElement.dataset.theme = 'dark';
+        }
+    </script>
 </head>
 <body>
-
-<canvas id="hero-canvas"></canvas>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
 <!-- =============================================
      NAVBAR
-============================================= -->
+     ============================================= -->
 <nav id="navbar">
     <div class="nav-inner">
-        <a href="#hero" class="nav-logo">SV<span class="dot-amber"></span></a>
+        <a href="#hero" class="nav-logo">Sahan Vishwa</a>
+
         <div class="nav-links">
+            <a href="#hero" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#projects">Work</a>
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
             <a href="#education">Education</a>
-            <a href="#contact" class="nav-cta">Contact Me</a>
+            <a href="#contact">Contact</a>
         </div>
-        <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navDrawer">
-            <span></span><span></span><span></span>
-        </button>
+
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+
+            <a href="https://github.com/Svishwa2004" target="_blank" rel="noopener" class="nav-social" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navDrawer">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </div>
 </nav>
 
 <div class="nav-drawer" id="navDrawer">
-    <a href="#about"      onclick="closeNav()">About</a>
-    <a href="#skills"     onclick="closeNav()">Skills</a>
+    <a href="#hero" onclick="closeNav()">Home</a>
+    <a href="#about" onclick="closeNav()">About</a>
+    <a href="#projects" onclick="closeNav()">Work</a>
+    <a href="#skills" onclick="closeNav()">Skills</a>
     <a href="#experience" onclick="closeNav()">Experience</a>
-    <a href="#projects"   onclick="closeNav()">Projects</a>
-    <a href="#education"  onclick="closeNav()">Education</a>
-    <a href="#contact"    onclick="closeNav()">Contact</a>
+    <a href="#education" onclick="closeNav()">Education</a>
+    <a href="#contact" onclick="closeNav()">Contact</a>
 </div>
 
 <!-- =============================================
      HERO
-============================================= -->
+     ============================================= -->
+<main>
 <section id="hero">
-    <div class="container">
-        <div class="side-stamp" aria-hidden="true">Sahan Vishwa &copy; 2025</div>
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <p class="eyebrow reveal">Hello, I'm Sahan,</p>
 
-        <div class="hero-grid">
-            <div class="hero-copy">
-                <span class="hero-quote" aria-hidden="true">&rdquo;</span>
-                <h1 class="display hero-name">
-                    <span class="line"><span class="hl"><span>Sahan</span></span></span>
-                    <span class="line">Vishwa<span class="dot-amber"></span></span>
-                </h1>
-                <div class="hero-sticker-row">
-                    <span class="sticker">IT Undergraduate</span>
-                    <span class="hero-role">IoT Engineer &middot; Developer</span>
-                </div>
-                <p class="hero-desc">
-                    First-year B.Sc. (Hons) student at <strong>University of Moratuwa</strong> passionate about bridging hardware and software. I build end-to-end systems — from custom PCBs and embedded C++ firmware to real-time web dashboards.
-                </p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn-primary">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>
-                        View Projects
-                    </a>
-                    <a href="resume.html" target="_blank" class="btn-secondary">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
-                        View Resume
-                    </a>
-                </div>
+            <h1 class="hero-title reveal reveal-delay-1" data-hero-title><span class="line"><span>Tech Enthusiast</span></span><span class="line"><span>IT Undergraduate</span></span></h1>
 
-                <div class="hero-social">
-                    <span class="hero-social-label">Find me on</span>
-                    <a href="https://github.com/Svishwa2004" target="_blank" aria-label="GitHub profile">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                    </a>
-                    <a href="https://linkedin.com/in/svishwa0800" target="_blank" aria-label="LinkedIn profile">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68 1.69 1.69 0 001.68 1.68M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
-                    </a>
-                    <a href="mailto:svishwa0800@gmail.com" aria-label="Send an email">
-                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </a>
-                </div>
-            </div>
+            <p class="hero-role reveal reveal-delay-2">
+                IoT Engineer <i>&bull;</i> Embedded Systems <i>&bull;</i> Web Technologies
+            </p>
 
-            <div class="hero-photo">
-                <div class="blob-photo">
-                    <img src="image.png" alt="Sahan Vishwa">
-                </div>
-                <div class="hero-badge hero-badge-1">
-                    <div class="hero-badge-num">2025</div>
-                    <div class="hero-badge-label">UoM Enrolled</div>
-                </div>
-                <div class="hero-badge hero-badge-2">
-                    <div class="hero-badge-num">NVQ4</div>
-                    <div class="hero-badge-label">ICT Certified</div>
-                </div>
-                <p class="hero-caption">Available for<br>opportunities</p>
+            <div class="hero-links reveal reveal-delay-3">
+                <a href="#contact" class="link-underline">Contact Me</a>
+                <a href="resume.html" target="_blank" rel="noopener" class="link-underline is-mute">R&eacute;sum&eacute;</a>
             </div>
         </div>
 
-        <div class="hero-scroll" aria-hidden="true">
-            <div class="scroll-line"></div>
-            <span>scroll</span>
+        <div class="hero-portrait reveal reveal-delay-1" data-reveal="scale">
+            <img src="hero.jpg" alt="Sahan Vishwa" width="880" height="1132" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
         </div>
     </div>
 </section>
 
 <!-- =============================================
      ABOUT
-============================================= -->
+     ============================================= -->
 <section id="about">
     <div class="container">
-        <div class="ghost-num about-ghost" aria-hidden="true">01</div>
+        <h2 class="section-title reveal" data-reveal="left">about</h2>
 
-        <div class="section-head reveal">
-            <span class="section-label">Who I Am</span>
-            <span class="section-rule"></span>
-            <a href="#skills" class="circle-btn" aria-label="Continue to skills">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-        </div>
+        <p class="lead reveal">
+            I'm Sahan &mdash; a first-year <strong>B.Sc. (Hons) Information Technology &amp; Management</strong>
+            student at the <strong>University of Moratuwa</strong>, building things that actually work &mdash;
+            from soldering a custom PCB to deploying a real-time IoT dashboard.
+        </p>
+        <p class="lead reveal">
+            My route into engineering started with a six-month IT internship at the Kandy District
+            Secretariat and an NVQ Level 4 certification in ICT. My first university project &mdash; an
+            optical pH sensor &mdash; pushed me to design custom circuits, write embedded C++ firmware,
+            and ship a web interface, all on my own.
+        </p>
 
-        <h2 class="section-title reveal">About <span class="marker"><span>Me</span></span><span class="dot-amber"></span></h2>
-
-        <div class="about-grid">
-            <div class="reveal">
-                <p class="about-text">
-                    I'm a first-year <strong>B.Sc. (Hons) IT &amp; Management</strong> student at the <strong>University of Moratuwa</strong> with a passion for building things that actually work — from soldering a custom PCB to deploying a real-time IoT dashboard.
-                </p>
-                <p class="about-text">
-                    My journey started with a <strong>6-month IT internship</strong> at Kandy District Secretariat and an <strong>NVQ Level 4</strong> certification in ICT. My first university project — an <strong>optical pH sensor</strong> — pushed me to design custom circuits, write embedded C++ firmware, and ship a web interface, all on my own.
-                </p>
+        <div class="focus-grid">
+            <div class="focus reveal">
+                <h3>Embedded &amp; IoT</h3>
+                <p>Firmware, hardware &amp; real-time sensing</p>
             </div>
+            <div class="focus reveal reveal-delay-1">
+                <h3>Full-Stack Web</h3>
+                <p>TypeScript, Node, APIs &amp; interfaces</p>
+            </div>
+            <div class="focus reveal reveal-delay-2">
+                <h3>Data &amp; Systems</h3>
+                <p>Python, analysis &amp; automation</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <div class="reveal reveal-delay-2">
-                <h3 class="sub-head">Bridging Hardware &amp; Software</h3>
-                <p class="about-text">
-                    I'm driven by curiosity and a relentless appetite for <strong>learning new technologies</strong> — whether that's firmware, full-stack dev, or AI tools. I believe the best engineers are the ones who can work across the entire stack.
-                </p>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <div class="stat-num">6mo</div>
-                        <div class="stat-label">Work Experience</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">8+</div>
-                        <div class="stat-label">GitHub Repos</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-num">A+</div>
-                        <div class="stat-label">ICT A/Level</div>
+<!-- =============================================
+     WORK
+     ============================================= -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title reveal" data-reveal="left">work</h2>
+
+        <p class="lead reveal">
+            Four projects taken end to end &mdash; firmware, circuit design, and the interfaces that sit
+            on top of them. Each one shipped rather than sat in a notebook.
+        </p>
+
+        <div class="work-grid">
+            <article class="work-card reveal">
+                <div class="work-top">
+                    <span class="work-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </span>
+                    <span class="work-tag">IoT &middot; Embedded</span>
+                </div>
+                <div class="work-body">
+                    <h3 class="work-title">Optical pH Sensor</h3>
+                    <p class="work-desc">Automated colorimetric pH sensor for hydroponics &mdash; 12-state FSM, dual-wavelength optics, 3-pump fluidics and a live dashboard.</p>
+                    <p class="work-meta">C++ &middot; ESP32 &middot; PlatformIO &middot; WebSocket</p>
+                    <div class="work-links">
+                        <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank" rel="noopener">GitHub &#8599;</a>
                     </div>
                 </div>
-            </div>
+            </article>
+
+            <article class="work-card reveal reveal-delay-1">
+                <div class="work-top">
+                    <span class="work-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </span>
+                    <span class="work-tag">Devpost &middot; WebMCP Hackathon</span>
+                </div>
+                <div class="work-body">
+                    <h3 class="work-title">Airlock &mdash; Private Spreadsheet Analyst</h3>
+                    <p class="work-desc">Built for the Devpost WebMCP Hackathon challenge &mdash; an AI agent analyses your CSV entirely inside the browser tab &mdash; the file never leaves. 7 WebMCP tools, privacy-mode gate unit-tested.</p>
+                    <p class="work-meta">TypeScript &middot; WebMCP &middot; Vite &middot; PapaParse</p>
+                    <div class="work-links">
+                        <a href="https://airlock-app.netlify.app/" target="_blank" rel="noopener">Live Demo &#8599;</a>
+                        <a href="https://github.com/Svishwa2004/airlock" target="_blank" rel="noopener">GitHub &#8599;</a>
+                    </div>
+                </div>
+            </article>
+
+
+            <article class="work-card reveal">
+                <div class="work-top">
+                    <span class="work-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2l8 4.5v5c0 5-3.4 9.3-8 10.5-4.6-1.2-8-5.5-8-10.5v-5L12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </span>
+                    <span class="work-tag">AI Evals &middot; Tooling</span>
+                </div>
+                <div class="work-body">
+                    <h3 class="work-title">WebMCP-Gauge &mdash; Agent Tool Metric</h3>
+                    <p class="work-desc">Measures whether an agent actually calls your page's WebMCP tools. Lint and run harness across 4,500 trials, discriminating 99.3% from 83.1%.</p>
+                    <p class="work-meta">Node.js 24 &middot; Chrome CDP &middot; LLM Judge &middot; Actions</p>
+                    <div class="work-links">
+                        <a href="https://github.com/Svishwa2004/webmcp-gauge" target="_blank" rel="noopener">GitHub &#8599;</a>
+                        <a href="https://github.com/Svishwa2004/webmcp-gauge/tree/main/reports" target="_blank" rel="noopener">Reports &#8599;</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="work-card reveal reveal-delay-1">
+                <div class="work-top">
+                    <span class="work-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                    </span>
+                    <span class="work-tag">Web &middot; Health</span>
+                </div>
+                <div class="work-body">
+                    <h3 class="work-title">Calm Care Checker</h3>
+                    <p class="work-desc">A guided self-check UI that turns a short questionnaire into a clear, calm next-step summary.</p>
+                    <p class="work-meta">TypeScript &middot; Vite &middot; Web App</p>
+                    <div class="work-links">
+                        <a href="https://github.com/Svishwa2004/calm-care-checker" target="_blank" rel="noopener">GitHub &#8599;</a>
+                    </div>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
 <!-- =============================================
      SKILLS
-============================================= -->
+     ============================================= -->
 <section id="skills">
     <div class="container">
-        <div class="section-head reveal">
-            <span class="section-label">What I Know</span>
-            <span class="section-rule"></span>
-            <a href="#experience" class="circle-btn" aria-label="Continue to experience">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-        </div>
+        <h2 class="section-title reveal" data-reveal="left">skills</h2>
 
-        <h2 class="section-title reveal">Technical <span class="marker"><span>Skills</span></span><span class="dot-amber"></span></h2>
+        <p class="lead reveal">
+            The tools I reach for, grouped by what they actually do rather than how loud they sound.
+        </p>
 
-        <div class="skills-grid">
-            <div class="skill-category reveal">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <div class="skill-cat-name">Languages</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">C / C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
+        <div class="row-list row-list--spaced">
+            <div class="row-item reveal">
+                <div class="row-label">Languages</div>
+                <div class="tag-list">
+                    <span class="tag">C / C++</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
                 </div>
             </div>
 
-            <div class="skill-category reveal reveal-delay-1">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2"/><rect x="3" y="3" width="18" height="18" rx="3"/></svg>
-                </div>
-                <div class="skill-cat-name">Embedded &amp; IoT</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">ESP32</span>
-                    <span class="skill-tag">PlatformIO</span>
-                    <span class="skill-tag">WebSocket</span>
-                    <span class="skill-tag">PWM Control</span>
-                    <span class="skill-tag">EasyEDA (PCB)</span>
-                    <span class="skill-tag">LittleFS</span>
-                </div>
-            </div>
-
-            <div class="skill-category reveal reveal-delay-2">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <div class="skill-cat-name">Tools &amp; Software</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Git &amp; GitHub</span>
-                    <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">Microsoft Office</span>
-                    <span class="skill-tag">Adobe Photoshop</span>
-                    <span class="skill-tag">Canva</span>
+            <div class="row-item reveal">
+                <div class="row-label">Embedded &amp; IoT</div>
+                <div class="tag-list">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">PlatformIO</span>
+                    <span class="tag">WebSocket</span>
+                    <span class="tag">PWM Control</span>
+                    <span class="tag">EasyEDA (PCB)</span>
+                    <span class="tag">LittleFS</span>
+                    <span class="tag">WebMCP</span>
+                    <span class="tag">PapaParse</span>
                 </div>
             </div>
 
-            <div class="skill-category reveal reveal-delay-3">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <div class="row-item reveal">
+                <div class="row-label">Tools &amp; Software</div>
+                <div class="tag-list">
+                    <span class="tag">Git &amp; GitHub</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">Vite</span>
+                    <span class="tag">GitHub Actions</span>
+                    <span class="tag">Chrome CDP</span>
+                    <span class="tag">Microsoft Office</span>
+                    <span class="tag">Adobe Photoshop</span>
+                    <span class="tag">Canva</span>
                 </div>
-                <div class="skill-cat-name">Soft Skills</div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Team Collaboration</span>
-                    <span class="skill-tag">Communication</span>
-                    <span class="skill-tag">Data Management</span>
-                    <span class="skill-tag">Self-Learning</span>
+            </div>
+
+            <div class="row-item reveal">
+                <div class="row-label">Working with others</div>
+                <div class="tag-list">
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Team Collaboration</span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Data Management</span>
+                    <span class="tag">Self-Learning</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- =============================================
      EXPERIENCE
-============================================= -->
+     ============================================= -->
 <section id="experience">
     <div class="container">
-        <div class="section-head reveal">
-            <span class="section-label">My Journey</span>
-            <span class="section-rule"></span>
-            <a href="#projects" class="circle-btn" aria-label="Continue to projects">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-        </div>
+        <h2 class="section-title reveal" data-reveal="left">experience</h2>
 
-        <h2 class="section-title reveal">Work <span class="marker"><span>Experience</span></span><span class="dot-amber"></span></h2>
-
-        <div class="timeline">
-            <div class="timeline-item reveal">
-                <div class="timeline-dot">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M2 12h20"/></svg>
-                </div>
-                <div class="timeline-body">
-                    <div class="timeline-meta">
-                        <div>
-                            <div class="timeline-role">IT Technician — Internship</div>
-                            <div class="timeline-org">Kandy District Secretariat, Kandy</div>
-                        </div>
-                        <div class="timeline-date">Jan 2022 – Jun 2022</div>
-                    </div>
-                    <ul class="timeline-bullets">
-                        <li>Managed digital documentation workflows and streamlined data entry processes using Microsoft Excel, improving record accuracy and retrieval efficiency</li>
-                        <li>Drafted and formatted official government correspondence using Microsoft Word, supporting daily administrative operations across multiple departments</li>
-                        <li>Performed routine system maintenance and configuration tasks including software installations, updates, and backup procedures</li>
+        <div class="row-list row-list--spaced timeline">
+            <div class="row-item reveal">
+                <div class="row-date">Jan 2022 &ndash; Jun 2022</div>
+                <div>
+                    <h3 class="row-title">IT Technician &mdash; Internship</h3>
+                    <p class="row-sub">Kandy District Secretariat, Kandy</p>
+                    <ul class="bullets">
+                        <li>Managed digital documentation workflows and streamlined data entry in Microsoft Excel, improving record accuracy and retrieval efficiency.</li>
+                        <li>Drafted and formatted official government correspondence in Microsoft Word, supporting daily administration across multiple departments.</li>
+                        <li>Carried out routine system maintenance &mdash; software installs, updates, and backup procedures.</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="timeline-item reveal reveal-delay-1">
-                <div class="timeline-dot">
-                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-                </div>
-                <div class="timeline-body">
-                    <div class="timeline-meta">
-                        <div>
-                            <div class="timeline-role">ICT Technician — NVQ Level 4</div>
-                            <div class="timeline-org">College of Technology, Kandy</div>
-                        </div>
-                        <div class="timeline-date">2022</div>
-                    </div>
-                    <ul class="timeline-bullets">
-                        <li>Completed a nationally recognized certificate course in ICT Technician at NVQ Level 4, covering hardware, networking, and systems support</li>
-                        <li>Gained hands-on technical skills applied directly in a government IT environment internship</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- =============================================
-     PROJECTS
-============================================= -->
-<section id="projects">
-    <div class="container">
-        <div class="section-head reveal">
-            <span class="section-label">What I've Built</span>
-            <span class="section-rule"></span>
-            <a href="#education" class="circle-btn" aria-label="Continue to education">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-        </div>
-
-        <h2 class="section-title reveal">Featured <span class="marker"><span>Projects</span></span><span class="dot-amber"></span></h2>
-
-        <div class="projects-grid">
-
-            <div class="project-card reveal" style="grid-column: 1 / -1;">
-                <span class="project-feat-badge">Featured</span>
-                <div class="project-feat-inner">
-                    <div>
-                        <div class="project-top">
-                            <div class="icon-tile">
-                                <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                            </div>
-                        </div>
-                        <div class="project-name">Optical pH Sensor for Hydroponic Systems</div>
-                        <p class="project-desc">
-                            A complete end-to-end IoT system designed and built solo as a first-year university project (Ver 2.1). Combines custom EasyEDA PCB design, ESP32 firmware with a 12-state non-blocking FSM, dual-wavelength (6500K+3000K) Beer-Lambert HSV colorimetry, Dynamic Blanking, and a real-time WebSocket dashboard — all independently engineered.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">C++</span>
-                            <span class="tech-tag">ESP32</span>
-                            <span class="tech-tag">PlatformIO</span>
-                            <span class="tech-tag">WebSocket</span>
-                            <span class="tech-tag">LittleFS</span>
-                            <span class="tech-tag">EasyEDA (PCB)</span>
-                            <span class="tech-tag">3D CAD</span>
-                            <span class="tech-tag">HTML/CSS/JS</span>
-                        </div>
-                    </div>
-                    <div class="feat-highlights">
-                        <div class="feat-highlights-label">Key Highlights</div>
-                        <div class="feat-highlight-list">
-                            <div class="feat-highlight-item">
-                                <span class="arrow" aria-hidden="true">&#9656;</span>
-                                <span>12-state non-blocking FSM automating 3-pump stack (fill, dose, mix, measure, R385 vacuum drain)</span>
-                            </div>
-                            <div class="feat-highlight-item">
-                                <span class="arrow" aria-hidden="true">&#9656;</span>
-                                <span>Dynamic Blanking stage nulls background water discolouration before dye dosing</span>
-                            </div>
-                            <div class="feat-highlight-item">
-                                <span class="arrow" aria-hidden="true">&#9656;</span>
-                                <span>Dual-wavelength optics (6500K+3000K LEDs) &amp; HSV colorimetry with firmware validity gating</span>
-                            </div>
-                            <div class="feat-highlight-item">
-                                <span class="arrow" aria-hidden="true">&#9656;</span>
-                                <span>Custom PCB (LM2596 buck, flyback-protected IRLZ44N MOSFETs) &amp; 3D-printed flow cell</span>
-                            </div>
-                        </div>
-                        <a href="https://github.com/Svishwa2004/Optical_Ph-sensor" target="_blank" class="feat-github-btn">
-                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card reveal reveal-delay-1">
-                <div class="project-top">
-                    <div class="icon-tile">
-                        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Svishwa2004/airlock" target="_blank" class="project-link" aria-label="Airlock on GitHub">
-                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-name">Airlock — Private AI Spreadsheet Analysis</div>
-                <p class="project-desc">Built for the OpenAI WebMCP Challenge: an AI agent that analyses your spreadsheet without ever receiving it. The CSV is parsed and computed over entirely inside the browser tab, and seven read-only WebMCP tools return only the aggregates the agent asks for — a default-on privacy mode that no tool can switch off. Unit tests cover every tool boundary.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">WebMCP</span>
-                    <span class="tech-tag">Vite</span>
-                    <span class="tech-tag">PapaParse</span>
-                    <span class="tech-tag">HTML/CSS</span>
-                    <span class="tech-tag">Node.js</span>
-                </div>
-            </div>
-
-            <div class="project-card reveal reveal-delay-2">
-                <div class="project-top">
-                    <div class="icon-tile">
-                        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Svishwa2004" target="_blank" class="project-link" aria-label="Portfolio source on GitHub">
-                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-name">Personal Portfolio Website</div>
-                <p class="project-desc">This very portfolio — a modern, amber-and-charcoal single-page site with animated particles, scroll-reveal effects, and responsive design built with pure HTML, CSS, and JavaScript.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Canvas API</span>
-                </div>
-            </div>
-
-            <div class="project-card reveal reveal-delay-3">
-                <div class="project-top">
-                    <div class="icon-tile">
-                        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Svishwa2004/calm-care-checker" target="_blank" class="project-link" aria-label="Calm Care Checker on GitHub">
-                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-name">Calm Care Checker</div>
-                <p class="project-desc">A TypeScript web application for mental wellness check-ins. Built using modern web technologies to help users monitor and reflect on their wellbeing in a calm, accessible interface.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">HTML/CSS</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
 
 <!-- =============================================
      EDUCATION
-============================================= -->
+     ============================================= -->
 <section id="education">
     <div class="container">
-        <div class="section-head reveal">
-            <span class="section-label">Academic Background</span>
-            <span class="section-rule"></span>
-            <a href="#contact" class="circle-btn" aria-label="Continue to contact">
-                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
-        </div>
+        <h2 class="section-title reveal" data-reveal="left">education</h2>
 
-        <h2 class="section-title reveal">My <span class="marker"><span>Education</span></span><span class="dot-amber"></span></h2>
-
-        <div class="edu-grid">
-            <div class="edu-card reveal">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-                </div>
-                <div class="edu-degree">B.Sc. (Hons) Information Technology &amp; Management</div>
-                <div class="edu-school">University of Moratuwa</div>
-                <div class="edu-year">2025 – 2029 · Expected</div>
-                <div class="edu-grades">
-                    <span class="grade-pill grade-pill-solid">Currently Enrolled</span>
+        <div class="row-list row-list--spaced timeline">
+            <div class="row-item reveal">
+                <div class="row-date">2025 &ndash; 2029</div>
+                <div>
+                    <h3 class="row-title">B.Sc. (Hons) Information Technology &amp; Management</h3>
+                    <p class="row-sub">University of Moratuwa &middot; Currently enrolled</p>
                 </div>
             </div>
 
-            <div class="edu-card reveal reveal-delay-1">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                </div>
-                <div class="edu-degree">G.C.E. Advanced Level</div>
-                <div class="edu-school">St. Anthony's College, Kandy</div>
-                <div class="edu-year">2023</div>
-                <div class="edu-grades">
-                    <span class="grade-pill">ICT: A</span>
-                    <span class="grade-pill">Accounting: A</span>
-                    <span class="grade-pill">Economics: B</span>
-                </div>
-            </div>
-
-            <div class="edu-card reveal reveal-delay-2">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                </div>
-                <div class="edu-degree">G.C.E. Ordinary Level</div>
-                <div class="edu-school">St. Anthony's College, Kandy</div>
-                <div class="edu-year">2020</div>
-                <div class="edu-grades">
-                    <span class="grade-pill">IT: A</span>
-                    <span class="grade-pill">English: A</span>
-                    <span class="grade-pill">Religion: A</span>
-                    <span class="grade-pill">+ 6 Subjects</span>
+            <div class="row-item reveal">
+                <div class="row-date">2023</div>
+                <div>
+                    <h3 class="row-title">G.C.E. Advanced Level</h3>
+                    <p class="row-sub">St. Anthony's College, Kandy</p>
+                    <div class="tag-list" style="margin-top:12px">
+                        <span class="tag">ICT: A</span>
+                        <span class="tag">Accounting: A</span>
+                        <span class="tag">Economics: B</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="edu-card reveal reveal-delay-3">
-                <div class="icon-tile">
-                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9,12 11,14 15,10"/></svg>
+            <div class="row-item reveal">
+                <div class="row-date">2022</div>
+                <div>
+                    <h3 class="row-title">National Certificate &mdash; ICT Technician</h3>
+                    <p class="row-sub">College of Technology, Kandy &middot; NVQ Level 4, nationally recognised</p>
                 </div>
-                <div class="edu-degree">National Certificate — ICT Technician (NVQ Level 4)</div>
-                <div class="edu-school">College of Technology, Kandy</div>
-                <div class="edu-year">2022</div>
-                <div class="edu-grades">
-                    <span class="grade-pill grade-pill-solid">Nationally Recognized</span>
+            </div>
+
+            <div class="row-item reveal">
+                <div class="row-date">2020</div>
+                <div>
+                    <h3 class="row-title">G.C.E. Ordinary Level</h3>
+                    <p class="row-sub">St. Anthony's College, Kandy</p>
+                    <div class="tag-list" style="margin-top:12px">
+                        <span class="tag">IT: A</span>
+                        <span class="tag">English: A</span>
+                        <span class="tag">Religion: A</span>
+                        <span class="tag">+ 6 subjects</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -510,82 +369,80 @@
 
 <!-- =============================================
      CONTACT
-============================================= -->
+     ============================================= -->
 <section id="contact">
     <div class="container">
-        <div class="ghost-num contact-ghost" aria-hidden="true">02</div>
+        <h2 class="section-title reveal" data-reveal="left">contact</h2>
 
-        <div class="contact-wrap">
-            <div class="section-head reveal">
-                <span class="section-label">Get In Touch</span>
-                <span class="section-rule"></span>
-                <a href="#hero" class="circle-btn" aria-label="Back to top">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
-                </a>
-            </div>
+        <p class="lead reveal">
+            Found something here worth a second look? My inbox is open &mdash; I read everything,
+            and I reply to anything about hardware, firmware, or the web stack.
+        </p>
 
-            <h2 class="section-title reveal">Let's <span class="marker"><span>Connect</span></span><span class="dot-amber"></span></h2>
+        <div class="social-grid">
+            <a class="social-card reveal" href="https://github.com/Svishwa2004" target="_blank" rel="noopener" aria-label="GitHub profile">
+                <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+                </span>
+                <span class="social-text">
+                    <span class="social-name">GitHub</span>
+                    <span class="social-handle">@Svishwa2004</span>
+                </span>
+                <span class="social-arrow" aria-hidden="true">&#8599;</span>
+            </a>
 
-            <p class="contact-tagline reveal">
-                I'm open to internships, collaborations, and exciting opportunities. Whether you have a project in mind or just want to say hi — my inbox is always open.
-            </p>
+            <a class="social-card reveal reveal-delay-1" href="https://linkedin.com/in/svishwa0800" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+                <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68A1.68 1.68 0 006.88 8.56M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
+                </span>
+                <span class="social-text">
+                    <span class="social-name">LinkedIn</span>
+                    <span class="social-handle">in/svishwa0800</span>
+                </span>
+                <span class="social-arrow" aria-hidden="true">&#8599;</span>
+            </a>
 
-            <div class="contact-cards reveal">
-                <a href="mailto:svishwa0800@gmail.com" class="contact-card">
-                    <div class="contact-card-icon">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </div>
-                    <div class="contact-card-text">
-                        <div class="contact-card-label">Email</div>
-                        <div class="contact-card-value">svishwa0800@gmail.com</div>
-                    </div>
-                </a>
-                <a href="https://linkedin.com/in/svishwa0800" target="_blank" class="contact-card">
-                    <div class="contact-card-icon">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68 1.69 1.69 0 001.68 1.68M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
-                    </div>
-                    <div class="contact-card-text">
-                        <div class="contact-card-label">LinkedIn</div>
-                        <div class="contact-card-value">in/svishwa0800</div>
-                    </div>
-                </a>
-                <a href="https://github.com/Svishwa2004" target="_blank" class="contact-card">
-                    <div class="contact-card-icon">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
-                    </div>
-                    <div class="contact-card-text">
-                        <div class="contact-card-label">GitHub</div>
-                        <div class="contact-card-value">Svishwa2004</div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="reveal">
-                <a href="mailto:svishwa0800@gmail.com" class="contact-cta">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    Say Hello
-                </a>
-            </div>
+            <a class="social-card reveal reveal-delay-2" href="mailto:svishwa0800@gmail.com" aria-label="Send an email">
+                <span class="social-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <span class="social-text">
+                    <span class="social-name">Email</span>
+                    <span class="social-handle">svishwa0800@gmail.com</span>
+                </span>
+                <span class="social-arrow" aria-hidden="true">&#8599;</span>
+            </a>
         </div>
     </div>
 </section>
+</main>
 
 <!-- =============================================
      FOOTER
-============================================= -->
-<footer>
-    <div class="footer-inner">
-        <div class="footer-copy">
-            Designed &amp; built by <span>Sahan Vishwa</span> · 2025
-        </div>
-        <div class="footer-links">
-            <a href="resume.html" target="_blank">Resume</a>
-            <a href="https://github.com/Svishwa2004" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/svishwa0800" target="_blank">LinkedIn</a>
+     ============================================= -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span class="footer-name">Sahan Vishwa</span>
+
+        <div class="footer-social">
+            <a href="https://github.com/Svishwa2004" target="_blank" rel="noopener" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2A10 10 0 002 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/svishwa0800" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26 2.4 2.4 0 00-1.77.72v-.57H11v8.41h2.47v-4.67a1.4 1.4 0 011.4-1.4 1.4 1.4 0 011.4 1.4v4.67h2.73M6.88 8.56a1.68 1.68 0 001.68-1.68A1.69 1.69 0 006.88 5.2a1.69 1.69 0 00-1.68 1.68A1.68 1.68 0 006.88 8.56M8.11 18.5V10.09H5.65v8.41h2.46z"/></svg>
+            </a>
+            <a href="mailto:svishwa0800@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
         </div>
     </div>
 </footer>
 
+<button id="toTop" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <script src="main.js"></script>
 </body>
 </html>
+
